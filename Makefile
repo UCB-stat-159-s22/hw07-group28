@@ -5,3 +5,4 @@ env :
 .PHONY : all
 all :
     jupyter execute main.ipynb
+    jupyter execute model.ipynb
