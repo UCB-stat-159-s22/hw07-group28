@@ -1,4 +1,4 @@
-name: hw7
+name: hw7_env
 dependencies:
   - python=3.9
   - decorator=5.1
