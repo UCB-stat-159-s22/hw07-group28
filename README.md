@@ -9,7 +9,6 @@ Project Description: This project is our final homework assignment for the Stat 
 - `EDA.ipynb` is a Jupyter Notebook displaying the exploratory data analysis we ran on the dataset
 - `environment.yml` is a .yml file that can be used to reproduce the environment we ran our analysis on
 - `hw07-description.md` is a Markdown file containing the instructions for this homework assignment
-- `Model.ipynb` is a Jupyter Notebook containing the code and 
 - `LICENSE` is a license for our work
 - `main.ipynb` is a Jupyter Notebook that contains a detailed description of our analysis and findings
 - `Makefile` is a Makefile that allows the easy rerunning of our analysis
