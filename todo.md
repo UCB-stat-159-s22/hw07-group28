@@ -5,7 +5,7 @@ TO-DO LIST
 - author contribution (Pradeep)
 - environment (Wesley + Thi) 
 - makefile (Pradeep)
-- readme + license (Wesley) 
+- readme + license (Wesley + Sean)
 - .gitignore (Wesley)
 
 
