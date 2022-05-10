@@ -15,7 +15,7 @@ Project Description: This project is our final homework assignment for the Stat 
 - `model.ipynb` is a Jupyter Notebook that displays the process by which we created our classifiers from the dataset
 - `pyproj.toml` is used to install our custom package
 - `setup.cfg` is used to install our custom package
-- `setup.py` s used to install our custom package
+- `setup.py` is used to install our custom package
 
 Citations:
 The Dataset Used in Our Analysis: https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease
