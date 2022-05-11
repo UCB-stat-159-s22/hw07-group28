@@ -2,7 +2,7 @@
 
 ## Project: Analysis of the Personal Key Indicators of Heart Disease Dataset
 
-### Authors: Pradeep Muthaiya, Sean Shimohara, Thi Ngyuen, and Wesley Cheung 
+### Authors: Pradeep Muthaiya, Sean Shimohara, Thi Nguyen, and Wesley Cheung 
 
 Project Description: This project is our final homework assignment for the Stat 159 Course taught at UC Berkeley. For this assignment, we analyze the publicly available Personal Key Indicators of Heart Disease Dataset. Here is a description of the files in the repo:
 - `data` is a folder that contains the .csv file of the dataset used in our analysis
