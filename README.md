@@ -1,3 +1,5 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-s22/hw07-group28.git/HEAD)
+
 ## Project: Analysis of the Personal Key Indicators of Heart Disease Dataset
 
 ### Authors: Pradeep Muthaiya, Sean Shimohara, Thi Ngyuen, and Wesley Cheung 
