@@ -3,14 +3,14 @@
 
 # # Machine Learning Algorithms Comparison
 
-# In[86]:
+# In[1]:
 
 
 import pandas as pd
 import numpy as np
 
 
-# In[87]:
+# In[2]:
 
 
 #preprocessing and feature selection libraries
@@ -20,7 +20,7 @@ from sklearn.feature_selection import SelectFromModel, SelectKBest, RFE, chi2
 from sklearn.ensemble import RandomForestClassifier
 
 
-# In[88]:
+# In[3]:
 
 
 # ML and plot libraries
@@ -33,14 +33,14 @@ from sklearn.ensemble import GradientBoostingClassifier
 import matplotlib.pyplot as plt
 
 
-# In[89]:
+# In[4]:
 
 
 import warnings
 warnings.filterwarnings("ignore")
 
 
-# In[90]:
+# In[5]:
 
 
 df = pd.read_csv('data/heart_2020_cleaned.csv')
@@ -49,7 +49,7 @@ df.head()
 
 # ## Data Preprocessing
 
-# In[91]:
+# In[6]:
 
 
 # standarize numerical columns
@@ -59,7 +59,7 @@ StandardScaler = StandardScaler()
 df[num_cols] = StandardScaler.fit_transform(df[num_cols])
 
 
-# In[92]:
+# In[7]:
 
 
 # Encode labels in Yes/No columns
@@ -73,7 +73,7 @@ for i in cat_cols:
 df.head()
 
 
-# In[93]:
+# In[8]:
 
 
 # split data into training and testing set
@@ -84,7 +84,7 @@ X_train, X_test, y_train, y_test = train_test_split(features, label,
                                                     shuffle=True, test_size=.3)
 
 
-# In[94]:
+# In[9]:
 
 
 # check shapes of training and testing sets
@@ -96,7 +96,7 @@ print('Shape of training label:', y_test.shape)
 
 # ## Features Selection
 
-# In[95]:
+# In[10]:
 
 
 feature_name = list(X_train.columns)
@@ -104,7 +104,7 @@ max_feats = len(feature_name) # maximum number of features that could be chosen
 max_feats
 
 
-# In[96]:
+# In[11]:
 
 
 X_norm = MinMaxScaler().fit_transform(X_train)
@@ -112,7 +112,7 @@ X_norm = MinMaxScaler().fit_transform(X_train)
 
 # ### Embedded Method
 
-# In[97]:
+# In[12]:
 
 
 # Random Forest to select features based on their importance
@@ -125,7 +125,7 @@ embeded_rf_feature = X_train.loc[:, embeded_rf_support].columns.tolist()
 embeded_rf_feature
 
 
-# In[98]:
+# In[13]:
 
 
 embeded_lr_selector = SelectFromModel(LogisticRegression(penalty="l2"),
@@ -139,7 +139,7 @@ embeded_lr_feature
 
 # ### Filter Method
 
-# In[99]:
+# In[14]:
 
 
 # Chi Squared for Feature Selection
@@ -150,7 +150,7 @@ chi_feature = X_train.loc[:,chi_support].columns.tolist()
 chi_feature
 
 
-# In[100]:
+# In[15]:
 
 
 def cor_selector(X, y,num_feats):
@@ -175,7 +175,7 @@ cor_feature
 
 # ### Wrapper Method 
 
-# In[101]:
+# In[16]:
 
 
 rfe_selector = RFE(estimator=LogisticRegression(),
@@ -188,7 +188,7 @@ rfe_feature
 
 # ### Selected Features
 
-# In[102]:
+# In[17]:
 
 
 feature_selection_df = pd.DataFrame({'Feature': feature_name,
@@ -205,13 +205,13 @@ feature_selection_df.index = range(1, len(feature_selection_df)+1)
 feature_selection_df.head(max_feats)
 
 
-# In[103]:
+# In[18]:
 
 
 features = feature_selection_df[feature_selection_df['Total'] > 4]['Feature']
 
 
-# In[104]:
+# In[19]:
 
 
 X_train = X_train[features]
@@ -220,7 +220,7 @@ X_test = X_test[features]
 
 # ## Models 
 
-# In[105]:
+# In[20]:
 
 
 def evaluate_model(model, x_test, y_test):
@@ -248,7 +248,7 @@ def evaluate_model(model, x_test, y_test):
 
 # ### Decision Tree 
 
-# In[106]:
+# In[21]:
 
 
 clf = DecisionTreeClassifier()
@@ -271,7 +271,7 @@ print('Confusion Matrix:\n', clf_result['cm'])
 
 # ### Naive Bayes Classifier
 
-# In[107]:
+# In[22]:
 
 
 gnb = GaussianNB()
@@ -289,7 +289,7 @@ print('Confusion Matrix:\n', gnb_result['cm'])
 
 # ### Logistic Regression
 
-# In[108]:
+# In[23]:
 
 
 logreg = LogisticRegression(random_state=0)
@@ -307,7 +307,7 @@ print('Confusion Matrix:\n', logreg_result['cm'])
 
 # ### Gradient Boosting Classifier
 
-# In[109]:
+# In[24]:
 
 
 gbc = GradientBoostingClassifier()
@@ -325,7 +325,7 @@ print('Confusion Matrix:\n', gbc_result['cm'])
 
 # ## Comparison 
 
-# In[110]:
+# In[25]:
 
 
 # Intitialize figure with two plots
@@ -370,7 +370,7 @@ plt.legend()
 plt.savefig('figures/model_comparison.png')
 
 
-# In[111]:
+# In[26]:
 
 
 # Comparing ROC Curve

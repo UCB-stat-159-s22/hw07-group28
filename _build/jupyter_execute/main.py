@@ -151,7 +151,7 @@ Image(filename='figures/heart_disease.png')
 # ## Results
 # ---
 # 
-# Using sklearn and the dataset, we created several different classifiers to predict the presence heart disease in an indivdual. Our classifiers included:
+# To select the features, we used 3 different methods (Embedded Method, Filter Method, and Wrapper Method) and picked the majority ones. Using sklearn and the dataset, we created several different classifiers to predict the presence heart disease in an indivdual. Our classifiers included:
 # - Decision Trees
 # - Gaussian Naive Bayes
 # - Logistic Regression
@@ -159,7 +159,7 @@ Image(filename='figures/heart_disease.png')
 # 
 # We then calculated the corresponding accuracy as well as other metrics in the confusion matrix for each classifier and plotted them together, shown in the figure below. The process for creating these classifiers can be found in the accompanying `model.ipynb` notebook.
 
-# In[10]:
+# In[7]:
 
 
 Image('figures/model_comparison.png')
@@ -201,17 +201,18 @@ Image('figures/roc_curve.png')
 # ---
 
 # ### Thi
-# - model notebook
+# - Model notebook
+# - Main narrative notebook
 # 
 # ### Wesley
 # - EDA notebook
 # - at least 2 function in separate python file
+# - Main narrative noetbook
 # 
 # ### Sean
-# - main narrative notebook
+# - Main narrative notebook
 # - README
 # 
 # ### Pradeep
-# - main narrative notebook 
-# - author contribution
-# - makefile
+# - Main narrative notebook 
+# - Makefile

@@ -37,7 +37,7 @@ dfi.export(numerical_summary,"figures/numerical_summary.png")
 numerical_summary
 
 
-# In[6]:
+# In[5]:
 
 
 f.plot_frequency(df)
@@ -45,13 +45,13 @@ f.plot_frequency(df)
 
 # ## Statistics of Categorical Variables
 
-# In[7]:
+# In[6]:
 
 
 f.plot_piechart(df)
 
 
-# In[8]:
+# In[7]:
 
 
 f.plot_bar(df)
