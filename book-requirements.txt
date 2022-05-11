@@ -1,0 +1,8 @@
+jupyter-book==0.12.1
+jupyter-sphinx==0.3.2
+markdown-it-py==1.1.0
+markupsafe==2.0.1
+myst-nb==0.13.1
+myst-parser==0.15.2
+sphinx==4.4.0
+sphinx-jupyterbook-latex==0.4.6
