@@ -6,6 +6,7 @@ Project Description: This project is our final homework assignment for the Stat 
 - `data` is a folder that contains the .csv file of the dataset used in our analysis
 - `figures` is a folder that contains all of the .png files we generated from our analysis
 - `tools` is a folder that contains the custom functions we used in our analysis, along with some simple tests for these functions
+- `contributionstatement.md` is a Markdown file outlining each group member's contributions to this repo
 - `EDA.ipynb` is a Jupyter Notebook displaying the exploratory data analysis we ran on the dataset
 - `environment.yml` is a .yml file that can be used to reproduce the environment we ran our analysis on
 - `hw07-description.md` is a Markdown file containing the instructions for this homework assignment
