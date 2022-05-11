@@ -14,6 +14,6 @@ Wesley Cheung:
 - Wrote EDA.ipynb
 - Built installable python package with tests
 - Helped write Makefile
-- Built Jupyterbook and binder
+- Built Jupyterbook and Binder
 
 Thi Ngyuen:
