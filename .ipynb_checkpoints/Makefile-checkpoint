@@ -17,5 +17,4 @@ html-hub :
 
 .PHONY : clean
 clean :
-	rm -f figures/*.png
 	rm -r _build/*

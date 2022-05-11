@@ -5,4 +5,4 @@ format: jb-book
 root: README
 chapters:
 - file: main
-  title: UCB Stat 159 Spring 2022 Group 28 
+  title: Main Analysis

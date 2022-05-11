@@ -19,6 +19,8 @@ Project Description: This project is our final homework assignment for the Stat 
 - `pyproj.toml` is used to install our custom package
 - `setup.cfg` is used to install our custom package
 - `setup.py` is used to install our custom package
+- `_config.yml` is used to produce the jupyter book
+- `_toc.yml` is used to produce the jupyter book
 
 Citations:
 The Dataset Used in Our Analysis: https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease
