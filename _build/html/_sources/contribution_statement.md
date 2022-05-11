@@ -1,3 +1,5 @@
+### Contribution statement
+
 Pradeep Muthaiya:
 - Wrote makefile
 - Helped write goal section and body of main.ipynb
@@ -17,3 +19,7 @@ Wesley Cheung:
 - Built Jupyterbook and Binder
 
 Thi Ngyuen:
+- Wrote model.ipynb
+- Helped write Results section of main.ipynb
+- Helped write Conclusion of main.ipynb 
+- Helped write README.md

@@ -207,7 +207,7 @@ Image('figures/roc_curve.png')
 # ### Wesley
 # - EDA notebook
 # - at least 2 function in separate python file
-# - Main narrative noetbook
+# - Main narrative notebook
 # 
 # ### Sean
 # - Main narrative notebook
