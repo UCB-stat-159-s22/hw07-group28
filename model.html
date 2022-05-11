@@ -1,0 +1,1483 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Machine Learning Algorithms Comparison &#8212; Analysis of the Personal Key Indicators of Heart Disease Dataset</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="/user/wesleycheung//proxy/absolute/8000/model.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Analysis of the Personal Key Indicators of Heart Disease Dataset</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Project: Analysis of the Personal Key Indicators of Heart Disease Dataset
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="main.html">
+   UCB Stat 159 Spring 2022 Group 28
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/model.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/UCB-stat-159-s22/hw07-group28.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/UCB-stat-159-s22/hw07-group28.git/main?urlpath=tree/docs/model.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preprocessing">
+   Data Preprocessing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#features-selection">
+   Features Selection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#embedded-method">
+     Embedded Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-method">
+     Filter Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wrapper-method">
+     Wrapper Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selected-features">
+     Selected Features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models">
+   Models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-tree">
+     Decision Tree
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#naive-bayes-classifier">
+     Naive Bayes Classifier
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logistic-regression">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gradient-boosting-classifier">
+     Gradient Boosting Classifier
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison">
+   Comparison
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Machine Learning Algorithms Comparison</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preprocessing">
+   Data Preprocessing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#features-selection">
+   Features Selection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#embedded-method">
+     Embedded Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-method">
+     Filter Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wrapper-method">
+     Wrapper Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selected-features">
+     Selected Features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models">
+   Models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decision-tree">
+     Decision Tree
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#naive-bayes-classifier">
+     Naive Bayes Classifier
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logistic-regression">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gradient-boosting-classifier">
+     Gradient Boosting Classifier
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison">
+   Comparison
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="machine-learning-algorithms-comparison">
+<h1>Machine Learning Algorithms Comparison<a class="headerlink" href="#machine-learning-algorithms-comparison" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#preprocessing and feature selection libraries</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectFromModel</span><span class="p">,</span> <span class="n">SelectKBest</span><span class="p">,</span> <span class="n">RFE</span><span class="p">,</span> <span class="n">chi2</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ML and plot libraries</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingClassifier</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/heart_2020_cleaned.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>HeartDisease</th>
+      <th>BMI</th>
+      <th>Smoking</th>
+      <th>AlcoholDrinking</th>
+      <th>Stroke</th>
+      <th>PhysicalHealth</th>
+      <th>MentalHealth</th>
+      <th>DiffWalking</th>
+      <th>Sex</th>
+      <th>AgeCategory</th>
+      <th>Race</th>
+      <th>Diabetic</th>
+      <th>PhysicalActivity</th>
+      <th>GenHealth</th>
+      <th>SleepTime</th>
+      <th>Asthma</th>
+      <th>KidneyDisease</th>
+      <th>SkinCancer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>No</td>
+      <td>16.60</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>3.0</td>
+      <td>30.0</td>
+      <td>No</td>
+      <td>Female</td>
+      <td>55-59</td>
+      <td>White</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Very good</td>
+      <td>5.0</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>No</td>
+      <td>20.34</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>No</td>
+      <td>Female</td>
+      <td>80 or older</td>
+      <td>White</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Very good</td>
+      <td>7.0</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>No</td>
+      <td>26.58</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>20.0</td>
+      <td>30.0</td>
+      <td>No</td>
+      <td>Male</td>
+      <td>65-69</td>
+      <td>White</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Fair</td>
+      <td>8.0</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>No</td>
+      <td>24.21</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>No</td>
+      <td>Female</td>
+      <td>75-79</td>
+      <td>White</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Good</td>
+      <td>6.0</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>No</td>
+      <td>23.71</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>28.0</td>
+      <td>0.0</td>
+      <td>Yes</td>
+      <td>Female</td>
+      <td>40-44</td>
+      <td>White</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Very good</td>
+      <td>8.0</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="data-preprocessing">
+<h2>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># standarize numerical columns</span>
+<span class="n">num_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BMI&#39;</span><span class="p">,</span> <span class="s1">&#39;PhysicalHealth&#39;</span><span class="p">,</span> <span class="s1">&#39;MentalHealth&#39;</span><span class="p">,</span> <span class="s1">&#39;SleepTime&#39;</span><span class="p">]</span>
+
+<span class="n">StandardScaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="n">num_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">num_cols</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Encode labels in Yes/No columns</span>
+<span class="n">label_encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">cat_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">,</span> <span class="s1">&#39;Smoking&#39;</span><span class="p">,</span> <span class="s1">&#39;AlcoholDrinking&#39;</span><span class="p">,</span> <span class="s1">&#39;Stroke&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;DiffWalking&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Diabetic&#39;</span><span class="p">,</span> <span class="s1">&#39;PhysicalActivity&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Asthma&#39;</span><span class="p">,</span> <span class="s1">&#39;KidneyDisease&#39;</span><span class="p">,</span> <span class="s1">&#39;SkinCancer&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;AgeCategory&#39;</span><span class="p">,</span> <span class="s1">&#39;Race&#39;</span><span class="p">,</span> <span class="s1">&#39;GenHealth&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cat_cols</span><span class="p">:</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>HeartDisease</th>
+      <th>BMI</th>
+      <th>Smoking</th>
+      <th>AlcoholDrinking</th>
+      <th>Stroke</th>
+      <th>PhysicalHealth</th>
+      <th>MentalHealth</th>
+      <th>DiffWalking</th>
+      <th>Sex</th>
+      <th>AgeCategory</th>
+      <th>Race</th>
+      <th>Diabetic</th>
+      <th>PhysicalActivity</th>
+      <th>GenHealth</th>
+      <th>SleepTime</th>
+      <th>Asthma</th>
+      <th>KidneyDisease</th>
+      <th>SkinCancer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-1.844750</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-0.046751</td>
+      <td>3.281069</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>-1.460354</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>-1.256338</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>-0.424070</td>
+      <td>-0.490039</td>
+      <td>0</td>
+      <td>0</td>
+      <td>12</td>
+      <td>5</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>-0.067601</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>-0.274603</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2.091388</td>
+      <td>3.281069</td>
+      <td>0</td>
+      <td>1</td>
+      <td>9</td>
+      <td>5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.628776</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>-0.647473</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-0.424070</td>
+      <td>-0.490039</td>
+      <td>0</td>
+      <td>0</td>
+      <td>11</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>-0.763977</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>-0.726138</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3.097572</td>
+      <td>-0.490039</td>
+      <td>1</td>
+      <td>0</td>
+      <td>4</td>
+      <td>5</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0.628776</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split data into training and testing set</span>
+<span class="c1"># 30% testing, 70% training</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">label</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span>
+                                                    <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check shapes of training and testing sets</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of training feature:&#39;</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of testing feature:&#39;</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of training label:&#39;</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of training label:&#39;</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of training feature: (223856, 17)
+Shape of testing feature: (95939, 17)
+Shape of training label: (223856,)
+Shape of training label: (95939,)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="features-selection">
+<h2>Features Selection<a class="headerlink" href="#features-selection" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_name</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">max_feats</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">feature_name</span><span class="p">)</span> <span class="c1"># maximum number of features that could be chosen</span>
+<span class="n">max_feats</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_norm</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="embedded-method">
+<h3>Embedded Method<a class="headerlink" href="#embedded-method" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Random Forest to select features based on their importance</span>
+<span class="n">embeded_rf_selector</span> <span class="o">=</span> <span class="n">SelectFromModel</span><span class="p">(</span><span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span> 
+                                      <span class="n">max_features</span><span class="o">=</span><span class="n">max_feats</span><span class="p">)</span>
+<span class="n">embeded_rf_selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">embeded_rf_support</span> <span class="o">=</span> <span class="n">embeded_rf_selector</span><span class="o">.</span><span class="n">get_support</span><span class="p">()</span>
+<span class="n">embeded_rf_feature</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">embeded_rf_support</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">embeded_rf_feature</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;BMI&#39;, &#39;PhysicalHealth&#39;, &#39;MentalHealth&#39;, &#39;AgeCategory&#39;, &#39;SleepTime&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embeded_lr_selector</span> <span class="o">=</span> <span class="n">SelectFromModel</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s2">&quot;l2&quot;</span><span class="p">),</span>
+                                      <span class="n">max_features</span><span class="o">=</span><span class="n">max_feats</span><span class="p">)</span>
+<span class="n">embeded_lr_selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_norm</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">embeded_lr_support</span> <span class="o">=</span> <span class="n">embeded_lr_selector</span><span class="o">.</span><span class="n">get_support</span><span class="p">()</span>
+<span class="n">embeded_lr_feature</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">embeded_lr_support</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">embeded_lr_feature</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;BMI&#39;, &#39;Stroke&#39;, &#39;Sex&#39;, &#39;AgeCategory&#39;, &#39;Diabetic&#39;, &#39;SleepTime&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filter-method">
+<h3>Filter Method<a class="headerlink" href="#filter-method" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chi Squared for Feature Selection</span>
+<span class="n">chi_selector</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">chi2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">max_feats</span><span class="p">)</span>
+<span class="n">chi_selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_norm</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">chi_support</span> <span class="o">=</span> <span class="n">chi_selector</span><span class="o">.</span><span class="n">get_support</span><span class="p">()</span>
+<span class="n">chi_feature</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">chi_support</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">chi_feature</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;BMI&#39;,
+ &#39;Smoking&#39;,
+ &#39;AlcoholDrinking&#39;,
+ &#39;Stroke&#39;,
+ &#39;PhysicalHealth&#39;,
+ &#39;MentalHealth&#39;,
+ &#39;DiffWalking&#39;,
+ &#39;Sex&#39;,
+ &#39;AgeCategory&#39;,
+ &#39;Race&#39;,
+ &#39;Diabetic&#39;,
+ &#39;PhysicalActivity&#39;,
+ &#39;GenHealth&#39;,
+ &#39;SleepTime&#39;,
+ &#39;Asthma&#39;,
+ &#39;KidneyDisease&#39;,
+ &#39;SkinCancer&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cor_selector</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">num_feats</span><span class="p">):</span>
+    <span class="n">cor_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">feature_name</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="c1"># calculate the correlation with y for each feature</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">():</span>
+        <span class="n">cor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">cor_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cor</span><span class="p">)</span>
+    <span class="c1"># replace NaN with 0</span>
+    <span class="n">cor_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">else</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cor_list</span><span class="p">]</span>
+    <span class="c1"># feature name</span>
+    <span class="n">cor_feature</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">cor_list</span><span class="p">))[</span><span class="o">-</span><span class="n">num_feats</span><span class="p">:]]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="c1"># feature selection? 0 for not select, 1 for select</span>
+    <span class="n">cor_support</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cor_feature</span> <span class="k">else</span> <span class="kc">False</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">feature_name</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">cor_support</span><span class="p">,</span> <span class="n">cor_feature</span>
+
+
+<span class="n">cor_support</span><span class="p">,</span> <span class="n">cor_feature</span> <span class="o">=</span> <span class="n">cor_selector</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">max_feats</span><span class="p">)</span>
+<span class="n">cor_feature</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;SleepTime&#39;,
+ &#39;GenHealth&#39;,
+ &#39;MentalHealth&#39;,
+ &#39;AlcoholDrinking&#39;,
+ &#39;Race&#39;,
+ &#39;Asthma&#39;,
+ &#39;BMI&#39;,
+ &#39;Sex&#39;,
+ &#39;SkinCancer&#39;,
+ &#39;PhysicalActivity&#39;,
+ &#39;Smoking&#39;,
+ &#39;KidneyDisease&#39;,
+ &#39;PhysicalHealth&#39;,
+ &#39;Diabetic&#39;,
+ &#39;Stroke&#39;,
+ &#39;DiffWalking&#39;,
+ &#39;AgeCategory&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="wrapper-method">
+<h3>Wrapper Method<a class="headerlink" href="#wrapper-method" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rfe_selector</span> <span class="o">=</span> <span class="n">RFE</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">LogisticRegression</span><span class="p">(),</span>
+                   <span class="n">n_features_to_select</span><span class="o">=</span><span class="n">max_feats</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">rfe_selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_norm</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">rfe_support</span> <span class="o">=</span> <span class="n">rfe_selector</span><span class="o">.</span><span class="n">get_support</span><span class="p">()</span>
+<span class="n">rfe_feature</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">rfe_support</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">rfe_feature</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;BMI&#39;,
+ &#39;Smoking&#39;,
+ &#39;AlcoholDrinking&#39;,
+ &#39;Stroke&#39;,
+ &#39;PhysicalHealth&#39;,
+ &#39;MentalHealth&#39;,
+ &#39;DiffWalking&#39;,
+ &#39;Sex&#39;,
+ &#39;AgeCategory&#39;,
+ &#39;Race&#39;,
+ &#39;Diabetic&#39;,
+ &#39;PhysicalActivity&#39;,
+ &#39;GenHealth&#39;,
+ &#39;SleepTime&#39;,
+ &#39;Asthma&#39;,
+ &#39;KidneyDisease&#39;,
+ &#39;SkinCancer&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="selected-features">
+<h3>Selected Features<a class="headerlink" href="#selected-features" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_selection_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Feature&#39;</span><span class="p">:</span> <span class="n">feature_name</span><span class="p">,</span>
+                                     <span class="s1">&#39;Random Forest&#39;</span><span class="p">:</span> <span class="n">embeded_rf_support</span><span class="p">,</span>
+                                     <span class="s1">&#39;Logistic&#39;</span><span class="p">:</span> <span class="n">embeded_lr_support</span><span class="p">,</span>
+                                     <span class="s1">&#39;Chi-2&#39;</span><span class="p">:</span> <span class="n">chi_support</span><span class="p">,</span>
+                                     <span class="s1">&#39;Pearson&#39;</span><span class="p">:</span> <span class="n">cor_support</span><span class="p">,</span>
+                                     <span class="s1">&#39;RFE&#39;</span><span class="p">:</span> <span class="n">rfe_support</span><span class="p">})</span>
+<span class="c1"># count the selected times for each feature</span>
+<span class="n">feature_selection_df</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">feature_selection_df</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">feature_selection_df</span> <span class="o">=</span> <span class="n">feature_selection_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+                                    <span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="s1">&#39;Feature&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">feature_selection_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">feature_selection_df</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">feature_selection_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">max_feats</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Feature</th>
+      <th>Random Forest</th>
+      <th>Logistic</th>
+      <th>Chi-2</th>
+      <th>Pearson</th>
+      <th>RFE</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>SleepTime</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BMI</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AgeCategory</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Stroke</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Sex</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>PhysicalHealth</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>MentalHealth</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Diabetic</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Smoking</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>SkinCancer</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Race</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>PhysicalActivity</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>KidneyDisease</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>GenHealth</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>DiffWalking</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Asthma</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>AlcoholDrinking</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">feature_selection_df</span><span class="p">[</span><span class="n">feature_selection_df</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">][</span><span class="s1">&#39;Feature&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="models">
+<h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">):</span>
+    <span class="c1"># Predict Test Data</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+
+    <span class="c1"># Calculate accuracy, precision, recall, f1-score, and kappa score</span>
+    <span class="n">acc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">prec</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">rec</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">f1</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">kappa</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">cohen_kappa_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+    <span class="c1"># Calculate area under curve (AUC)</span>
+    <span class="n">y_pred_proba</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">x_test</span><span class="p">)[::,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_proba</span><span class="p">)</span>
+    <span class="n">auc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_proba</span><span class="p">)</span>
+
+    <span class="c1"># Display confussion matrix</span>
+    <span class="n">cm</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;acc&#39;</span><span class="p">:</span> <span class="n">acc</span><span class="p">,</span> <span class="s1">&#39;prec&#39;</span><span class="p">:</span> <span class="n">prec</span><span class="p">,</span> <span class="s1">&#39;rec&#39;</span><span class="p">:</span> <span class="n">rec</span><span class="p">,</span> <span class="s1">&#39;f1&#39;</span><span class="p">:</span> <span class="n">f1</span><span class="p">,</span> <span class="s1">&#39;kappa&#39;</span><span class="p">:</span> <span class="n">kappa</span><span class="p">,</span> 
+            <span class="s1">&#39;fpr&#39;</span><span class="p">:</span> <span class="n">fpr</span><span class="p">,</span> <span class="s1">&#39;tpr&#39;</span><span class="p">:</span> <span class="n">tpr</span><span class="p">,</span> <span class="s1">&#39;auc&#39;</span><span class="p">:</span> <span class="n">auc</span><span class="p">,</span> <span class="s1">&#39;cm&#39;</span><span class="p">:</span> <span class="n">cm</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="decision-tree">
+<h3>Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+
+<span class="c1"># Train</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Store all of the revelant evaluation metrics</span>
+<span class="n">clf_result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="c1"># Some of the evaluation metrics</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy:&#39;</span><span class="p">,</span> <span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precision:&#39;</span><span class="p">,</span> <span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;prec&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Recall:&#39;</span><span class="p">,</span> <span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;rec&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F1 Score:&#39;</span><span class="p">,</span> <span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cohens Kappa Score:&#39;</span><span class="p">,</span> <span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;kappa&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Area Under Curve:&#39;</span><span class="p">,</span> <span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;auc&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Confusion Matrix:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.8973618653519424
+Precision: 0.1908831908831909
+Recall: 0.06608309702872642
+F1 Score: 0.09817748878102389
+Cohens Kappa Score: 0.05718049561880856
+Area Under Curve: 0.6106485151453851
+Confusion Matrix:
+ [[85556  2272]
+ [ 7575   536]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="naive-bayes-classifier">
+<h3>Naive Bayes Classifier<a class="headerlink" href="#naive-bayes-classifier" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gnb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">gnb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">gnb_result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">gnb</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precision:&#39;</span><span class="p">,</span> <span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;prec&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Recall:&#39;</span><span class="p">,</span> <span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;rec&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F1 Score:&#39;</span><span class="p">,</span> <span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cohens Kappa Score:&#39;</span><span class="p">,</span> <span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;kappa&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Area Under Curve:&#39;</span><span class="p">,</span> <span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;auc&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Confusion Matrix:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.9096613473144394
+Precision: 0.21862348178137653
+Recall: 0.026630501787695722
+F1 Score: 0.04747774480712166
+Cohens Kappa Score: 0.029662353310315748
+Area Under Curve: 0.7613758684657895
+Confusion Matrix:
+ [[87056   772]
+ [ 7895   216]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="logistic-regression">
+<h3>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">logreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">logreg_result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">logreg</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precision:&#39;</span><span class="p">,</span> <span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;prec&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Recall:&#39;</span><span class="p">,</span> <span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;rec&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F1 Score:&#39;</span><span class="p">,</span> <span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cohens Kappa Score:&#39;</span><span class="p">,</span> <span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;kappa&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Area Under Curve:&#39;</span><span class="p">,</span> <span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;auc&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Confusion Matrix:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.9153837334139401
+Precision: 0.23076923076923078
+Recall: 0.0003698680803846628
+F1 Score: 0.0007385524372230429
+Cohens Kappa Score: 0.0004681072213331694
+Area Under Curve: 0.7571961923908538
+Confusion Matrix:
+ [[87818    10]
+ [ 8108     3]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="gradient-boosting-classifier">
+<h3>Gradient Boosting Classifier<a class="headerlink" href="#gradient-boosting-classifier" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gbc</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">()</span>
+<span class="n">gbc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">gbc_result</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">gbc</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precision:&#39;</span><span class="p">,</span> <span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;prec&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Recall:&#39;</span><span class="p">,</span> <span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;rec&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F1 Score:&#39;</span><span class="p">,</span> <span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Cohens Kappa Score:&#39;</span><span class="p">,</span> <span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;kappa&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Area Under Curve:&#39;</span><span class="p">,</span> <span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;auc&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Confusion Matrix:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;cm&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.9154150032833362
+Precision: 0.0
+Recall: 0.0
+F1 Score: 0.0
+Cohens Kappa Score: -8.335216308030802e-05
+Area Under Curve: 0.767509673458834
+Confusion Matrix:
+ [[87824     4]
+ [ 8111     0]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="comparison">
+<h2>Comparison<a class="headerlink" href="#comparison" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Intitialize figure with two plots</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Model Comparison&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="c1"># first plot</span>
+<span class="n">barWidth</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">clf_score</span> <span class="o">=</span> <span class="p">[</span><span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">],</span> <span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;prec&#39;</span><span class="p">],</span> <span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;rec&#39;</span><span class="p">],</span>
+             <span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">],</span> <span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;kappa&#39;</span><span class="p">]]</span>
+<span class="n">gnb_score</span> <span class="o">=</span> <span class="p">[</span><span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">],</span> <span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;prec&#39;</span><span class="p">],</span> <span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;rec&#39;</span><span class="p">],</span>
+             <span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">],</span> <span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;kappa&#39;</span><span class="p">]]</span>
+<span class="n">logreg_score</span> <span class="o">=</span> <span class="p">[</span><span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">],</span> <span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;prec&#39;</span><span class="p">],</span>
+                <span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;rec&#39;</span><span class="p">],</span> <span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">],</span> <span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;kappa&#39;</span><span class="p">]]</span>
+<span class="n">gbc_score</span> <span class="o">=</span> <span class="p">[</span><span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">],</span> <span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;prec&#39;</span><span class="p">],</span> <span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;rec&#39;</span><span class="p">],</span>
+             <span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;f1&#39;</span><span class="p">],</span> <span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;kappa&#39;</span><span class="p">]]</span>
+
+<span class="c1"># Set position of bar on X axis</span>
+<span class="n">br1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">clf_score</span><span class="p">))</span>
+<span class="n">br2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="n">barWidth</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">br1</span><span class="p">]</span>
+<span class="n">br3</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="n">barWidth</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">br2</span><span class="p">]</span>
+<span class="n">br4</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="n">barWidth</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">br3</span><span class="p">]</span>
+
+<span class="c1"># Make the plot</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">br1</span><span class="p">,</span> <span class="n">clf_score</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">barWidth</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> 
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Decision Tree&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">br2</span><span class="p">,</span> <span class="n">gnb_score</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">barWidth</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Gaussian Naive Bayes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">br3</span><span class="p">,</span> <span class="n">logreg_score</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">barWidth</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Logistic Regression&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">br4</span><span class="p">,</span> <span class="n">gbc_score</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">barWidth</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Gradient Boosting&#39;</span><span class="p">)</span>
+
+<span class="c1"># Configure x and y axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Metrics&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="n">r</span> <span class="o">+</span> <span class="p">(</span><span class="n">barWidth</span><span class="o">*</span><span class="mf">1.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">clf_score</span><span class="p">))],</span>
+           <span class="p">[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;Precision&#39;</span><span class="p">,</span> <span class="s1">&#39;Recall&#39;</span><span class="p">,</span> <span class="s1">&#39;F1&#39;</span><span class="p">,</span> <span class="s1">&#39;Kappa&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Score&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/model_comparison.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/model_37_0.png" src="_images/model_37_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comparing ROC Curve</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;fpr&#39;</span><span class="p">],</span> <span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;tpr&#39;</span><span class="p">],</span>
+         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Decision Tree, auc=</span><span class="si">{: 0.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">clf_result</span><span class="p">[</span><span class="s1">&#39;auc&#39;</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;fpr&#39;</span><span class="p">],</span> <span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;tpr&#39;</span><span class="p">],</span>
+         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Gaussian Naive Bayes, auc=</span><span class="si">{: 0.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gnb_result</span><span class="p">[</span><span class="s1">&#39;auc&#39;</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;fpr&#39;</span><span class="p">],</span> <span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;tpr&#39;</span><span class="p">],</span>
+         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Logistic Regression, auc=</span><span class="si">{: 0.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">logreg_result</span><span class="p">[</span><span class="s1">&#39;auc&#39;</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;fpr&#39;</span><span class="p">],</span> <span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;tpr&#39;</span><span class="p">],</span>
+         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Gradient Boosting, auc=</span><span class="si">{: 0.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gbc_result</span><span class="p">[</span><span class="s1">&#39;auc&#39;</span><span class="p">]))</span>
+
+<span class="c1"># Configure x and y axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create legend &amp; title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ROC Curve&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/roc_curve.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/model_38_0.png" src="_images/model_38_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By UCB Stat 159 Spring 2022 Group 28<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1031 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analysis of the Personal Key Indicators of Heart Disease Dataset &#8212; Analysis of the Personal Key Indicators of Heart Disease Dataset</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="/user/wesleycheung//proxy/absolute/8000/main.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Project: Analysis of the Personal Key Indicators of Heart Disease Dataset" href="README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Analysis of the Personal Key Indicators of Heart Disease Dataset</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Project: Analysis of the Personal Key Indicators of Heart Disease Dataset
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   UCB Stat 159 Spring 2022 Group 28
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/main.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/UCB-stat-159-s22/hw07-group28.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/UCB-stat-159-s22/hw07-group28.git/main?urlpath=tree/docs/main.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#goal-of-our-analysis">
+   Goal of our Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-the-dataset">
+   About the Dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#key-indicators-of-heart-disease">
+     Key Indicators of Heart Disease
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#annual-cdc-survey-data-of-400k-adults-related-to-their-health-status">
+       2020 annual CDC survey data of 400k adults related to their health status
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#where-did-our-data-originate-from">
+       Where did our data originate from?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#who-collects-the-data">
+       Who Collects the Data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-collection-process">
+       Data Collection Process
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-manipulation">
+       Data Manipulation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-are-the-variables-in-our-datset">
+       What are the variables in our datset?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-assumptions">
+   Data Assumptions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#author-manipulation">
+     Author Manipulation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#survey-user-bias">
+     Survey User Bias
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#health-bias">
+       Health Bias
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#communication-bias">
+       Communication Bias
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#brief-data-preview">
+     Brief Data Preview:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   Methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exploratory-data-analysis">
+     Exploratory Data Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#roc-curve">
+     Roc Curve
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#key-findings">
+     Key Findings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#future-considerations">
+     Future Considerations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#logistic-regression-vs-gradient-boosting">
+       Logistic Regression vs. Gradient Boosting
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#features-used">
+       Features Used
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dataset-used">
+       Dataset Used
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#author-contributions">
+   Author Contributions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thi">
+     Thi
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wesley">
+     Wesley
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sean">
+     Sean
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pradeep">
+     Pradeep
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Analysis of the Personal Key Indicators of Heart Disease Dataset</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#goal-of-our-analysis">
+   Goal of our Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-the-dataset">
+   About the Dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#key-indicators-of-heart-disease">
+     Key Indicators of Heart Disease
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#annual-cdc-survey-data-of-400k-adults-related-to-their-health-status">
+       2020 annual CDC survey data of 400k adults related to their health status
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#where-did-our-data-originate-from">
+       Where did our data originate from?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#who-collects-the-data">
+       Who Collects the Data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-collection-process">
+       Data Collection Process
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#data-manipulation">
+       Data Manipulation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-are-the-variables-in-our-datset">
+       What are the variables in our datset?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-assumptions">
+   Data Assumptions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#author-manipulation">
+     Author Manipulation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#survey-user-bias">
+     Survey User Bias
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#health-bias">
+       Health Bias
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#communication-bias">
+       Communication Bias
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#brief-data-preview">
+     Brief Data Preview:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   Methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exploratory-data-analysis">
+     Exploratory Data Analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#roc-curve">
+     Roc Curve
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#key-findings">
+     Key Findings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#future-considerations">
+     Future Considerations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#logistic-regression-vs-gradient-boosting">
+       Logistic Regression vs. Gradient Boosting
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#features-used">
+       Features Used
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dataset-used">
+       Dataset Used
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#author-contributions">
+   Author Contributions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thi">
+     Thi
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wesley">
+     Wesley
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sean">
+     Sean
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pradeep">
+     Pradeep
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="analysis-of-the-personal-key-indicators-of-heart-disease-dataset">
+<h1>Analysis of the Personal Key Indicators of Heart Disease Dataset<a class="headerlink" href="#analysis-of-the-personal-key-indicators-of-heart-disease-dataset" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="goal-of-our-analysis">
+<h2>Goal of our Analysis<a class="headerlink" href="#goal-of-our-analysis" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<ol class="simple">
+<li><p>Analyze the dataset and pull out meaningful contributions after first investigating various Data Trends and Analyses.</p></li>
+<li><p>Look deeper into different ways to model the data and see if there is any correlation between the feature variables and the validation labels.</p></li>
+</ol>
+</div>
+<div class="section" id="about-the-dataset">
+<h2>About the Dataset<a class="headerlink" href="#about-the-dataset" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="key-indicators-of-heart-disease">
+<h3>Key Indicators of Heart Disease<a class="headerlink" href="#key-indicators-of-heart-disease" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="annual-cdc-survey-data-of-400k-adults-related-to-their-health-status">
+<h4>2020 annual CDC survey data of 400k adults related to their health status<a class="headerlink" href="#annual-cdc-survey-data-of-400k-adults-related-to-their-health-status" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease">Data Set Link</a></p>
+<p><a class="reference external" href="https://www.cdc.gov/brfss/annual_data/annual_data.htm">Original CDC Data Set Link</a></p>
+</div>
+<div class="section" id="where-did-our-data-originate-from">
+<h4>Where did our data originate from?<a class="headerlink" href="#where-did-our-data-originate-from" title="Permalink to this headline">¶</a></h4>
+<p>The dataset used in our analysis is derived from the CDC’s Behavioral Risk Factor Surveillance System, which is an annual survey that investigates the health status of U.S. residents. Note that we are not working with the raw data gathered from this survey, but with a dataset derived from this survey that has undergone preprocessing by a third-party author.</p>
+</div>
+<div class="section" id="who-collects-the-data">
+<h4>Who Collects the Data<a class="headerlink" href="#who-collects-the-data" title="Permalink to this headline">¶</a></h4>
+<p>The dataset come from the CDC and is a major part of the Behavioral Risk Factor Surveillance System (BRFSS), which conducts annual telephone surveys to gather data on the health status of U.S. residents.</p>
+</div>
+<div class="section" id="data-collection-process">
+<h4>Data Collection Process<a class="headerlink" href="#data-collection-process" title="Permalink to this headline">¶</a></h4>
+<p>The BRFSS now collects data in all 50 states as well as the District of Columbia and three U.S. territories. The most recent dataset (as of February 15, 2022) includes data from 2020 consisting of <strong>401,958 rows and 279 columns</strong>. The vast majority of columns are questions asked to respondents about their health status, such as:</p>
+<ul class="simple">
+<li><p>“Do you have serious difficulty walking or climbing stairs?”</p></li>
+<li><p>“Have you smoked at least 100 cigarettes in your entire life? [Note: 5 packs = 100 cigarettes]”.</p></li>
+</ul>
+</div>
+<div class="section" id="data-manipulation">
+<h4>Data Manipulation<a class="headerlink" href="#data-manipulation" title="Permalink to this headline">¶</a></h4>
+<p>In this dataset, the author noticed many different factors (questions) that directly or indirectly influence heart disease, so they decided to select the most relevant variables from it and do some cleaning so that it would be usable for machine learning projects. <strong>As described above, the original dataset of nearly 300 variables was reduced to just about 18 variables.</strong></p>
+</div>
+<div class="section" id="what-are-the-variables-in-our-datset">
+<h4>What are the variables in our datset?<a class="headerlink" href="#what-are-the-variables-in-our-datset" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Heart</span> <span class="pre">Disease</span></code> (Yes/No): Marks whether subject reports ever having coronary heart disease or myocardial infarction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BMI</span></code> (Numerical): Records the subject’s body mass index</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Smoking</span></code> (Yes/No): Marks whether the subject reports smoking at least 100 cigarettes in their life</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AlcoholDrinking</span></code> (Yes/No): Marks whether the subject reports drinking at least 14 drinks a week</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Stroke</span></code> (Yes/No): Marks whether the subject reports ever having a stroke</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PhysicalHealth</span></code> (Numerical): Records the number of days in the past 30 days the subject reports their physical health as “not good”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MentalHealth</span></code> (Numerical): Records the number of days in the past 30 days the subject reports their mental health as “not good”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DiffWalking</span></code> (Yes/No): Marks whether subject reports having difficulty climbing up the stairs</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sex</span></code> (Categorical): Records the sex of the subject</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AgeCategory</span></code> (Categorical): Records the age category of the subject</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Race</span></code> (Categorical): Records the race of the subject</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Diabetic</span></code> (Categorical): Marks whether the subject reports ever having diabeties</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PhysicalActivity</span></code> (True/False): Marks whether the subject reports engaging in regular physical activity apart from work</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GenHealth</span></code> (Categorical): Records how the subject rates their own general health</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sleep</span> <span class="pre">Time</span></code> (Numerical): Records how many hours of sleep subjects report receiving on average</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Asthma</span></code> (Yes/No): Marks whether the subject reports ever having asthma</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">KidneyDisease</span></code> (Yes/No): Marks whether the subject reports ever having kidney disease</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SkinCancer</span></code> (Yes/No): Marks whether the subject reports ever having skin cancer</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="data-assumptions">
+<h2>Data Assumptions<a class="headerlink" href="#data-assumptions" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="author-manipulation">
+<h3>Author Manipulation<a class="headerlink" href="#author-manipulation" title="Permalink to this headline">¶</a></h3>
+<p>We described in the ‘Data Manipulation’ Section above, the author redacted 280 different variables based on the idea that it was not necessary or didn’t provide helpful information. They gave no explanation for how this was determined, whether that was PCA, Random Forest exploration or other techniques; we don’t know how or why these features were chosen over the others.</p>
+</div>
+<div class="section" id="survey-user-bias">
+<h3>Survey User Bias<a class="headerlink" href="#survey-user-bias" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="health-bias">
+<h4>Health Bias<a class="headerlink" href="#health-bias" title="Permalink to this headline">¶</a></h4>
+<p>According to the BRFSS <a class="reference external" href="https://www.cdc.gov/brfss/about/index.htm">website</a> they don’t disclose how the annual 400k applicants are chosen. Typically people who are more conscious about their health will go out of their way to fill out health based surveys as it can make an individual feel good about themselves to do so. On the other hand both people with heart disease and or people with physical health struggles and issues will be less inclined to fill out a survey discussing parts of themselves that they may not promote or want to focus on.</p>
+</div>
+<div class="section" id="communication-bias">
+<h4>Communication Bias<a class="headerlink" href="#communication-bias" title="Permalink to this headline">¶</a></h4>
+<p>Looking at their <a class="reference external" href="https://www.cdc.gov/brfss/data_documentation/pdf/UserguideJune2013.pdf">documentation guide</a>, we see that the interviews are done over landline phones. With the surgance of spam calling and decline of the general public to answer unknown numbers, this could also lead to a possible influx of older generations being more willing to pick up and answer as younger demographics veer away from this methodology with the inherent risks that it poses.</p>
+</div>
+</div>
+<div class="section" id="brief-data-preview">
+<h3>Brief Data Preview:<a class="headerlink" href="#brief-data-preview" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import statements</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/heart_2020_cleaned.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>HeartDisease</th>
+      <th>BMI</th>
+      <th>Smoking</th>
+      <th>AlcoholDrinking</th>
+      <th>Stroke</th>
+      <th>PhysicalHealth</th>
+      <th>MentalHealth</th>
+      <th>DiffWalking</th>
+      <th>Sex</th>
+      <th>AgeCategory</th>
+      <th>Race</th>
+      <th>Diabetic</th>
+      <th>PhysicalActivity</th>
+      <th>GenHealth</th>
+      <th>SleepTime</th>
+      <th>Asthma</th>
+      <th>KidneyDisease</th>
+      <th>SkinCancer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>No</td>
+      <td>16.60</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>3.0</td>
+      <td>30.0</td>
+      <td>No</td>
+      <td>Female</td>
+      <td>55-59</td>
+      <td>White</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Very good</td>
+      <td>5.0</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>No</td>
+      <td>20.34</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>No</td>
+      <td>Female</td>
+      <td>80 or older</td>
+      <td>White</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Very good</td>
+      <td>7.0</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>No</td>
+      <td>26.58</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>20.0</td>
+      <td>30.0</td>
+      <td>No</td>
+      <td>Male</td>
+      <td>65-69</td>
+      <td>White</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Fair</td>
+      <td>8.0</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>No</td>
+      <td>24.21</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>No</td>
+      <td>Female</td>
+      <td>75-79</td>
+      <td>White</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Good</td>
+      <td>6.0</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>No</td>
+      <td>23.71</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>28.0</td>
+      <td>0.0</td>
+      <td>Yes</td>
+      <td>Female</td>
+      <td>40-44</td>
+      <td>White</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Very good</td>
+      <td>8.0</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="exploratory-data-analysis">
+<h3>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h3>
+<p>We first took a look into the data that we had access to and broke it down to see what the distributions of each feature looked like.</p>
+<p>We see that in our data the amount of people that have heart disease, kidney disease and smoking are significantly less that those that do not have those diseases. Because of this we need to take into account that the information on those that do have any of the diseases are much more prone to have their feature sets have much larger weights than those of people that do not have the diseases. This will become especially apparant in our modeling methods.</p>
+<p>Other interesting things that we saw were the large presense of smokers, the minimal amount of alcohol drinking, and asthma. We also saw in terms of demographics that there was a relatively equal size of male to female ratio, but a predominantly white demographic for race. While there is a solid proportion of people that said they had excellent, good or very good physical health, very few actively engaged in physical activity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;figures/pie_chart.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/main_9_0.png" src="_images/main_9_0.png" />
+</div>
+</div>
+<p>Here we wanted to look closer at the actual distributions with more specific information. We only chose to look at a subset of five features that held the larger amount of importance in affecting the labels of the dataset.</p>
+<p>In figure (2) below, you can see the mean, standard deviation and the quantiles of the data for each of the five features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;figures/numerical_summary.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/main_11_0.png" src="_images/main_11_0.png" />
+</div>
+</div>
+<p>We then looked at any possible correlations between Age and the various possible diseases that people could get and created a graph plotting the correlation between age an the frequency of the age group to get the specified disease in figure (2).</p>
+<p><strong>Findings:</strong> Here we see that as age goes up, we tend to see that the frequency at which an age group gets any of the diseases increases at a nearly quadratic rate. Whats interesting here is the way that the data fluctuates as age goes up in a near perfect pattern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;figures/contin_frequency.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/main_13_0.png" src="_images/main_13_0.png" />
+</div>
+</div>
+<p>Here we continued to look at various comparisons of different features with a corresponding disease frequency for the subset of that feature. In the previous figure we looked at a continuous variable in <code class="docutils literal notranslate"><span class="pre">age</span></code>, but in this one we chose to look at discrete variables that are subset into categories. In this figure (3) we looked at the General Health of a person and the frequency at which they would have or not have heart disease in terms of the raw amount of people itself.</p>
+<p><strong>Findings:</strong> This graph shows that, if looking at the rough proportionality of no heart disease to heart disease ratios, <code class="docutils literal notranslate"><span class="pre">very</span> <span class="pre">good</span></code> and <code class="docutils literal notranslate"><span class="pre">excellent</span></code> but have much larger ratios of no heart to heart disease candidates, while as we go to <code class="docutils literal notranslate"><span class="pre">good</span></code>, and <code class="docutils literal notranslate"><span class="pre">fair</span></code> the proportions get worse, and at <code class="docutils literal notranslate"><span class="pre">poor</span></code> it gets to a nearly 1 to 1 ratio of no heart disease to heart disease. This makes sense in the larger context of health as a whole, as people who have generally less good health don’t have bodies that are as capable of fighting off various diseases and will have their heart and its condition erode faster than those that take care of it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;figures/heart_disease.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/main_15_0.png" src="_images/main_15_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Using sklearn and the dataset, we created several different classifiers to predict the presence heart disease in an indivdual. Our classifiers included:</p>
+<ul class="simple">
+<li><p>Decision Trees</p></li>
+<li><p>Gaussian Naive Bayes</p></li>
+<li><p>Logistic Regression</p></li>
+<li><p>Gradient Boosting</p></li>
+</ul>
+<p>We then calculated the corresponding accuracy as well as other metrics in the confusion matrix for each classifier and plotted them together, shown in the figure below. The process for creating these classifiers can be found in the accompanying <code class="docutils literal notranslate"><span class="pre">model.ipynb</span></code> notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/model_comparison.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/main_17_0.png" src="_images/main_17_0.png" />
+</div>
+</div>
+<p>We found that the accuracy for the Logistic Regression and the Gradient Boosting were the highest while the Decision Tree classifier performed the worst. Additionally, we observe that Gradient Boosting performs the best by far in terms of precision.</p>
+<div class="section" id="roc-curve">
+<h3>Roc Curve<a class="headerlink" href="#roc-curve" title="Permalink to this headline">¶</a></h3>
+<p>We also calculated what the ROC Curve would look like for each classifier and plotted them together to show how well each performed.</p>
+<p><strong>Results:</strong> We found that the ROC Curve for the Gaussian Naive Bayes, Logistic Regression and Gradient Boosting had similar aucs all being between .81 and .85, while the Decision Tree had very poor auc with it being close to .58, which is almost near .5 which is equivalent to randomly selecting values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/roc_curve.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/main_19_0.png" src="_images/main_19_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="key-findings">
+<h3>Key Findings<a class="headerlink" href="#key-findings" title="Permalink to this headline">¶</a></h3>
+<p>From our EDA, we observed that not only does incidence of heart disease increase with age, but incidences of kidney disease and skin cancer exhibit a similar increasing trend. Additionally, we observed that people who self-report their health as <code class="docutils literal notranslate"><span class="pre">poor</span></code> have nearly a 1:1 incidence of heart disease. In terms of our classifiers, we found that the Logistic Regression and Gradient Boosting classifiers performed similarly in terms of accuracy. On the other hand, we found that the Decision Tree classifier performed the worst in terms of accuracy, recall, F1, and kappa.</p>
+</div>
+<div class="section" id="future-considerations">
+<h3>Future Considerations<a class="headerlink" href="#future-considerations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="logistic-regression-vs-gradient-boosting">
+<h4>Logistic Regression vs. Gradient Boosting<a class="headerlink" href="#logistic-regression-vs-gradient-boosting" title="Permalink to this headline">¶</a></h4>
+<p>Although our Logistic Regression and Gradient Boosting achieved similar accuracies, this does not imply that they are equally ubiquitous. As a step for future research, it could be interesting to explore under which specific cases Logistic Regression and Gradient Bossting outperform one another. Additionally, it should be considered that the Gradient Boosting classifier had much better precision by a considerable margin.</p>
+</div>
+<div class="section" id="features-used">
+<h4>Features Used<a class="headerlink" href="#features-used" title="Permalink to this headline">¶</a></h4>
+<p>As was mentioned in the Data Assumptions section, the dataset we worked with was narrowed down to just 18 features from nearly 300. The author of this dataset chose these 18 features at their own discretion, and did not provide a comprehensive explanation as to why the other 280~ features were exluded. To build more comprehensive classifiers, programmers should work closely with heart disease experts to see if any potentially important factors were excluded during this selection process.</p>
+</div>
+<div class="section" id="dataset-used">
+<h4>Dataset Used<a class="headerlink" href="#dataset-used" title="Permalink to this headline">¶</a></h4>
+<p>In the Data Assumptions section, it was mentioned how this dataset was derived from a <em>telephone survey</em> of the U.S. population. Because of biases inherent to this medium of communication (i.e. older people may be more likely to answer), the quality of this dataset should be investigated further. Ideally, future researchers could find another dataset with some of the same features as this one and build classifiers based off it, then observe how the classifiers for these datasets compare.</p>
+</div>
+</div>
+</div>
+<div class="section" id="author-contributions">
+<h2>Author Contributions<a class="headerlink" href="#author-contributions" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="thi">
+<h3>Thi<a class="headerlink" href="#thi" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>model notebook</p></li>
+</ul>
+</div>
+<div class="section" id="wesley">
+<h3>Wesley<a class="headerlink" href="#wesley" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>EDA notebook</p></li>
+<li><p>at least 2 function in separate python file</p></li>
+</ul>
+</div>
+<div class="section" id="sean">
+<h3>Sean<a class="headerlink" href="#sean" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>main narrative notebook</p></li>
+<li><p>README</p></li>
+</ul>
+</div>
+<div class="section" id="pradeep">
+<h3>Pradeep<a class="headerlink" href="#pradeep" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>main narrative notebook</p></li>
+<li><p>author contribution</p></li>
+<li><p>makefile</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Project: Analysis of the Personal Key Indicators of Heart Disease Dataset</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By UCB Stat 159 Spring 2022 Group 28<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
